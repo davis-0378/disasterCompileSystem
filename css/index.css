@@ -1,0 +1,86 @@
+body {
+  background-color: rgb(216, 216, 216);
+}
+
+.container {
+  width: 1200px;
+  height: 650px;
+  background-color: rgb(35, 35, 35);
+  margin-top: 20px;
+  margin-left: 168px;
+  padding: 5px;
+  box-sizing: content-box;
+}
+.container #panel {
+  display: inline-block;
+  margin: 0px;
+  width: 195px;
+  height: 650px;
+}
+.container #app {
+  display: inline-block;
+  margin: 0px;
+  width: 1000px;
+  height: 650px;
+  transform: translate(0, -310px);
+}
+
+#panel #control-panel {
+  width: 195px;
+  height: 325px;
+}
+#panel #show-panel {
+  width: 195px;
+  height: 325px;
+}
+
+#control-panel {
+  padding: 10px;
+}
+#control-panel #city {
+  margin-bottom: 20px;
+}
+#control-panel #area {
+  margin-bottom: 20px;
+}
+
+#show-panel {
+  color: rgb(241, 241, 241);
+  border-top: 1px solid rgb(216, 216, 216);
+  padding: 10px;
+}
+#show-panel #rainfall {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+#weather {
+  color: rgba(0, 196, 203, 0.8);
+  font-size: 20px;
+  visibility: hidden;
+}
+
+#landslide-deadline {
+  visibility: hidden;
+  color: rgb(231, 36, 36);
+}
+
+#app {
+  background-color: rgb(47, 47, 47);
+}
+#app #taiwan-map {
+  width: 1000px;
+  height: 650px;
+}
+
+#taiwan-map path {
+  stroke: rgb(216, 216, 216);
+  fill: rgb(47, 47, 47);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#taiwan-map path:hover {
+  fill: rgba(0, 196, 203, 0.8);
+  transform: translate(-3px, -3px);
+}/*# sourceMappingURL=index.css.map */

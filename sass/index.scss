@@ -1,0 +1,96 @@
+$color-main-dark : rgb(35, 35, 35);
+$color-main : rgb(47, 47, 47);
+$color-active : rgba(0, 196, 203, 0.8);
+$test-color-yellow : rgb(203, 196, 0);
+$test-color-green : rgb(0, 203, 0);
+$bk-color : rgb(216, 216, 216);
+$bk-color-light : rgb(241, 241, 241);
+
+body{
+    background-color : $bk-color;
+}
+
+.container {
+    width: 1200px;
+    height: 650px;
+    background-color: $color-main-dark;
+    margin-top: 20px;
+    margin-left: 168px;
+    padding: 5px;
+    box-sizing: content-box;
+    #panel{
+        display: inline-block;
+        margin: 0px;
+        width: 195px;
+        height: 650px;
+    }
+    #app{
+        display: inline-block;
+        margin: 0px;
+        width: 1000px;
+        height: 650px;
+        transform: translate(0, -310px);
+    }
+}
+
+#panel{
+    #control-panel{
+        width: 195px;
+        height: 325px;
+    }
+    #show-panel{
+        width: 195px;
+        height: 325px;
+    }
+}
+
+#control-panel{
+    padding: 10px;
+    #city{
+        margin-bottom: 20px;
+    }
+    #area{
+        margin-bottom: 20px;
+    }
+}
+
+#show-panel{
+    color : $bk-color-light;
+    border-top: 1px solid $bk-color;
+    padding: 10px;
+    #rainfall{
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+#weather{
+    color: $color-active;
+    font-size: 20px;
+    visibility: hidden;
+}
+
+#landslide-deadline{
+    visibility: hidden;
+    color: rgb(231, 36, 36);
+}
+
+#app{
+    background-color: $color-main;
+    #taiwan-map{
+        width: 1000px;
+        height: 650px;
+    }
+}
+
+#taiwan-map path{
+    stroke: $bk-color;
+    fill: $color-main;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#taiwan-map path:hover{
+    fill: $color-active;
+    transform: translate(-3px, -3px);
+}
