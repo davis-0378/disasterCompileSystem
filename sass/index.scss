@@ -1,6 +1,7 @@
 $color-main-dark : rgb(35, 35, 35);
 $color-main : rgb(47, 47, 47);
-$color-active : rgba(0, 196, 203, 0.8);
+$color-main-light : rgb(102, 102, 102);
+$color-active : rgba(54, 162, 235, 0.5);
 $test-color-yellow : rgb(203, 196, 0);
 $test-color-green : rgb(0, 203, 0);
 $bk-color : rgb(216, 216, 216);
@@ -21,36 +22,42 @@ body{
     #panel{
         display: inline-block;
         margin: 0px;
-        width: 195px;
+        width: 205px;
         height: 650px;
     }
     #app{
         display: inline-block;
         margin: 0px;
-        width: 1000px;
+        width: 990px;
         height: 650px;
-        transform: translate(0, -310px);
+        transform: translate(0, -90px);
     }
 }
 
 #panel{
     #control-panel{
-        width: 195px;
-        height: 325px;
+        width: 205px;
+        height: 200px;
     }
     #show-panel{
-        width: 195px;
-        height: 325px;
+        width: 205px;
+        height: 450px;
     }
 }
 
 #control-panel{
     padding: 10px;
-    #city{
+    #favorite{
         margin-bottom: 20px;
+        display: inline-block;
     }
-    #area{
-        margin-bottom: 20px;
+    #seat-favorite{
+        width: 40px;
+        display: inline-block;
+    }
+    #btn-back{
+        margin-top: 85px;
+        margin-left: 127px;
     }
 }
 
@@ -62,35 +69,87 @@ body{
         margin-top: 20px;
         margin-bottom: 30px;
     }
+    #disaster-probability{
+        height: 230px;
+        width: 185px;
+    }
 }
 
 #weather{
+    visibility: hidden;
     color: $color-active;
     font-size: 20px;
-    visibility: hidden;
+}
+
+#rainfall-hour-text{
+    display: inline;
+    width: 120px;
+}
+
+#rainfall-hour{
+    display: inline;
+    width: 50px;
+}
+
+#rainfall-today-text{
+    display: inline;
+    width: 120px;
+}
+
+#rainfall-today{
+    display: inline;
+    width: 50px;
 }
 
 #landslide-deadline{
     visibility: hidden;
     color: rgb(231, 36, 36);
+    height: 48px;
+}
+
+#myChart{
+    height: 180px;
+    width: 185px;
 }
 
 #app{
     background-color: $color-main;
-    #taiwan-map{
+    svg{
         width: 1000px;
         height: 650px;
+        display: none;
     }
 }
 
-#taiwan-map path{
+svg path{
     stroke: $bk-color;
-    fill: $color-main;
+    stroke-width: 0.1px;
+    fill: $color-main-light;
     transition: 0.5s;
-    cursor: pointer;
+    cursor: pointer;   
 }
 
-#taiwan-map path:hover{
+svg#taiwan-map {
+    display: inline;
+}
+
+svg#taiwan-map path{
+    stroke-width: 1px;   
+}
+
+svg#taiwan-map path:hover{
     fill: $color-active;
     transform: translate(-3px, -3px);
+}
+
+svg path{
+    stroke: $bk-color;
+    stroke-width: 0.1px;
+    fill: transparent;
+    transition: 0.5s;
+    cursor: pointer;   
+}
+
+svg path:hover{
+    fill: $color-active;
 }
