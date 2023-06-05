@@ -14,6 +14,8 @@ function changeLook(countyname, townname, fall, total){
     $("div#show-panel h5").text(countyname + townname);
     if(townname === "士林區") {
         $("#landslide-deadline").css("visibility", "visible");
+    }else{
+        $("#landslide-deadline").css("visibility", "hidden");
     }
     $("#rainfall-hour").text("15mm");
     $("#rainfall-today").text("100mm");
