@@ -1,3 +1,5 @@
+import "./C-B0025-002/2022.json"
+
 let mapSize = 0;
 let dataname, townname = null, countyname = null, fall = null, total = null;
 const favorite = [];
@@ -21,6 +23,8 @@ function changeLook(countyname, townname, fall, total){
     $("#rainfall-today").text("100mm");
     setChart(fall, total);
 }
+
+
 
 $(function(){
     //點台灣地圖的縣市，進入縣市小圖
@@ -101,3 +105,4 @@ $(document).ready(function(){
         }
     })
 });
+
