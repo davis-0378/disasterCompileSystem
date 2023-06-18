@@ -22,5 +22,8 @@
         "TOWNNAME",
         "yilan",
         "yunlin"
-    ]
+    ],
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 2500000
+    }
 }
