@@ -1,6 +1,4 @@
-import "./C-B0025-002/2022.json"
-
-let mapSize = 0;
+let mapSize = 0, index = 0;
 let dataname, townname = null, countyname = null, fall = null, total = null;
 const favorite = [];
 
@@ -22,9 +20,53 @@ function changeLook(countyname, townname, fall, total){
     $("#rainfall-hour").text("15mm");
     $("#rainfall-today").text("100mm");
     setChart(fall, total);
+
+    getAreaWeatherDetail(townname.slice(0,2), 100);
 }
 
+function getAreaWeatherDetail(areaName, precipitation){
+    console.log(areaName);
 
+    fetch("dist/C-B0025-002/2022.json")
+    .then(response => {
+        return response.json()
+    })
+    .then(jsondata => {
+        //jsondata.cwbdata.resources.resource.data.surfaceObs["location"][0].station.StationName
+        index = 0;
+        const data = jsondata.cwbdata.resources.resource.data.surfaceObs["location"];
+        
+        for(i = 0; i < data.length; i++){
+            console.log(data[i].station.StationName);
+
+            if(data[i].station.StationName === areaName)
+            {
+                let result =  countAreaPrecipitation(jsondata.cwbdata.resources.resource.data.surfaceObs["location"][i]);
+                console.log(result);
+            }
+        }
+
+        //console.log(data.find(Location => Location.station.StationName === areaName));
+    })
+}
+
+function countAreaPrecipitation(data) {
+    let result, precipitationData = data.stationObsTimes.stationObsTime;
+
+
+    for(i = 0; i < precipitationData.length; i++) {
+        console.log(precipitationData[i].weatherElements.Precipitation);
+        result += precipitationData[i].weatherElements.Precipitation;
+    }
+}
+
+function getAreaHourPrecipitation(){
+
+}
+
+function getAreaDayPrecipitation(){
+    
+}
 
 $(function(){
     //點台灣地圖的縣市，進入縣市小圖
@@ -63,9 +105,7 @@ $(function(){
             $("#weather").css("visibility", "visible");
             townname = $(this).attr("townname");
             countyname = $(this).attr("countyname");
-            fall = $(this).attr("fall");
-            total = $(this).attr("total");
-            changeLook(countyname, townname, fall, total);
+            changeLook(countyname, townname);
         }
         
     });
@@ -97,10 +137,11 @@ $(document).ready(function(){
             const place = {
                 countyname : countyname,
                 townname : townname,
-                fall : fall,
-                total : total
+                fall : $("#rainfall-hour").text(),
+                total : $("#rainfall-today").text()
             };
 
+            console.log(place);
             favorite.push(place);
         }
     })
