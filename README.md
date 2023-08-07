@@ -7,7 +7,5 @@ A system of compile disaster information
 但降雨量的部分，中央氣象局的api 給出的資料不太完整，需要使用爬蟲技術從 [10分鐘資料](https://www.cwb.gov.tw/V8/C/P/Rainfall/Rainfall_10Min_County.html) 此頁面得取。
 
 還可以再加上 cookie 還有使用者登入等功能，如此一來，就可以再加上後端的功能了。
-
 等到後端功能還有資料庫加設完成後，會進行網頁優化，把網頁架構改成前後端分離的部分。
-
 其他後續會出現之功能，人為災害各地區之統整，還有各災害的地區排名(像:火災第一名  xx區、oo區....)。
